@@ -70,7 +70,7 @@
             <ice:panelGroup>
                 <ice:outputLabel for="cidade" value="Cidade: (*)"/>
                 <ice:inputText id="cidade" value="#{inscricaoBean.pessoa.enderecoCidade}" size="50"
-                               styleClass="ui-inputfield" label="cidade" maxlength="50" required="true"/>
+                               styleClass="ui-inputfield" label="Cidade" maxlength="50" required="true"/>
                 <ice:outputLabel style="margin-left: 10px;" for="estado" value="Estado: (*)"/>
                 <ice:inputText id="estado" value="#{inscricaoBean.pessoa.enderecoEstado}" size="4"
                                styleClass="ui-inputfield" label="Estado" maxlength="2" required="true"/>
@@ -83,8 +83,39 @@
                 <ice:inputText id="bairro" value="#{inscricaoBean.pessoa.enderecoBairro}" size="30"
                                styleClass="ui-inputfield" label="Bairro" maxlength="50"/>
             </ice:panelGroup>
-            
+            <ice:panelGroup>
+                <ice:outputLabel for="fone" value="Fone/Celular: (*)"/>
+                <ace:maskedEntry id="fone" value="#{inscricaoBean.pessoa.telefone}" mask="(99) 9999-9999"
+                                 label="Fone" size="15"/>
+            </ice:panelGroup>
+            <ice:panelGroup>
+                <ice:outputLabel for="email" value="E-mail: (*)"/>
+                <ice:inputText id="email" value="#{inscricaoBean.pessoa.email}" size="60"
+                               styleClass="ui-inputfield" label="E-mail" maxlength="200" required="true"/>
+            </ice:panelGroup>
             <div class="titulo-form">Cursos em que deseja se inscrever: </div>
+            <ice:panelGroup>
+                <ice:selectBooleanCheckbox id="cursoJava" value="#{inscricaoBean.cursoJava}"></ice:selectBooleanCheckbox>
+                <ice:outputLabel value="Programação Java para Web"></ice:outputLabel>
+            </ice:panelGroup>
+            <ice:panelGroup>
+                <ice:selectBooleanCheckbox id="cursoPython" value="#{inscricaoBean.cursoPython}"></ice:selectBooleanCheckbox>
+                <ice:outputLabel value="Linguagem Python"></ice:outputLabel>
+            </ice:panelGroup>
+            <ice:panelGroup>
+                <ice:selectBooleanCheckbox id="cursoRuby" value="#{inscricaoBean.cursoRuby}"></ice:selectBooleanCheckbox>
+                <ice:outputLabel value="Ruby on Rails"></ice:outputLabel>
+            </ice:panelGroup>
+            <ice:panelGroup>
+                <ice:selectBooleanCheckbox id="cursoHtml" value="#{inscricaoBean.cursoHtml}"></ice:selectBooleanCheckbox>
+                <ice:outputLabel value="HTML 5"></ice:outputLabel>
+            </ice:panelGroup>
+            <ice:panelGroup>
+                <ice:selectBooleanCheckbox id="cursoWebservice" value="#{inscricaoBean.cursoWebservice}"></ice:selectBooleanCheckbox>
+                <ice:outputLabel value="Webservices"></ice:outputLabel>
+            </ice:panelGroup>
+            <ice:commandButton value="Confirmar cadastro" action="#{inscricaoBean.cadastroAction()}"></ice:commandButton>
+            <p><span>Os campos marcados com (*) são obrigatórios</span></p>
         </ice:form>
     </ui:define>
 
