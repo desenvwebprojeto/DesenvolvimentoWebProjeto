@@ -15,7 +15,7 @@ public class StringValidator implements Validator {
     @Override
     public void validate(FacesContext fc, UIComponent uic, Object o) throws ValidatorException {
         String text = o.toString();
-        if (!text.toLowerCase().matches("^[a-zA-Z\\s]*$")) { 
+        if (!text.toLowerCase().matches("^[a-zA-ZéúíóáÉÚÍÓÁèùìòàÈÙÌÒÀõãñÕÃÑêûîôâÊÛÎÔÂëÿüïöäËYÜÏÖÄ\\s]*$")) { 
             throw new ValidatorException(new FacesMessage("O campo \'" + uic.getAttributes().get("label") + "\' contém caracteres não permitidos."));
         } 
     }

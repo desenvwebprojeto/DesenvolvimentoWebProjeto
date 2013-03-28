@@ -16,7 +16,7 @@ public class EmailValidator implements Validator {
     public void validate(FacesContext fc, UIComponent uic, Object o) throws ValidatorException {
         String text = o.toString();
         if (!text.toLowerCase().matches("^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,4})$")) {
-            throw new ValidatorException(new FacesMessage("O campo \'" + uic.getAttributes().get("label") + "\' contém caracteres não permitidos."));
+            throw new ValidatorException(new FacesMessage("O campo \'" + uic.getAttributes().get("label") + "\' é inválido. Verifique e tente novamente."));
         }
     }
 }

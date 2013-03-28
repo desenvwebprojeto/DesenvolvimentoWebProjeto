@@ -8,6 +8,7 @@ import com.mycompany.trabalho_final.inscricao.faces.validator.CPFValidator;
 import com.mycompany.trabalho_final.inscricao.faces.validator.EmailValidator;
 import com.mycompany.trabalho_final.inscricao.faces.validator.StringValidator;
 import com.mycompany.trabalho_final.model.Pessoa;
+import java.math.BigDecimal;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
@@ -26,7 +27,7 @@ public class InscricaoBean extends PageBean {
     private StringValidator stringValidator = new StringValidator();
     private AlphaNumericValidator alphaNumericValidator = new AlphaNumericValidator();
     private EmailValidator emailValidator = new EmailValidator();
-    private double valor = 100.00;
+    private BigDecimal valor = new BigDecimal("100.00");
     private boolean cursoJava = false;
     private boolean cursoRuby = false;
     private boolean cursoPython = false;
@@ -37,9 +38,48 @@ public class InscricaoBean extends PageBean {
     }
 
     public void cadastroAction() {
+        this.calculaValor();
+        info("-----------");
+        info("Nome: " + pessoa.getNome());
+        info("CPF: " + pessoa.getCpf());
+        info("RG: " + pessoa.getRg());
+        info("Endereço: " + pessoa.getEnderecoRua());
+        info("Número: " + pessoa.getEnderecoNumero());
+        info("Complemento: " + pessoa.getEnderecoComplemento());
+        info("Cidade: " + pessoa.getEnderecoCidade());
+        info("Estado: " + pessoa.getEnderecoEstado());
+        info("CEP: " + pessoa.getCep());
+        info("Bairro: " + pessoa.getEnderecoBairro());
+        info("Fone: " + pessoa.getTelefone());
+        info("E-Mail: " + pessoa.getEmail());
+        info("Curso Java: " + this.isCursoJava());
+        info("Curso Python: " + this.isCursoPython());
+        info("Curso Ruby: " + this.isCursoRuby());
+        info("Curso HTML: " + this.isCursoHtml());
+        info("Curso Webservies: " + this.isCursoWebservice());
+        info("Valor: " + this.getValor().toString());
+        info("-----------");
         info("Inscrição realizada com sucesso");
     }
+    
+    private void calculaValor() {
+        this.checaCurso(cursoJava);
+        this.checaCurso(cursoPython);
+        this.checaCurso(cursoRuby);
+        this.checaCurso(cursoHtml);
+        this.checaCurso(cursoWebservice);
+    }
 
+    private void checaCurso(boolean op) {
+        if(op) {
+            this.valor = valor.add(new BigDecimal("50.00"));
+        }
+    }
+    
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+    }
+    
     public Pessoa getPessoa() {
         return pessoa;
     }
@@ -68,11 +108,11 @@ public class InscricaoBean extends PageBean {
         return emailValidator;
     }
 
-    public double getValor() {
+    public BigDecimal getValor() {
         return valor;
     }
 
-    public void setValor(double valor) {
+    public void setValor(BigDecimal valor) {
         this.valor = valor;
     }
 
