@@ -3,6 +3,10 @@ package com.mycompany.trabalho_final.inscricao.faces.mngbeans;
 import com.mycompany.trabalho_final.controller.faces.support.PageBean;
 import com.mycompany.trabalho_final.inscricao.faces.converter.CEPConverter;
 import com.mycompany.trabalho_final.inscricao.faces.converter.CPFConverter;
+import com.mycompany.trabalho_final.inscricao.faces.validator.AlphaNumericValidator;
+import com.mycompany.trabalho_final.inscricao.faces.validator.CPFValidator;
+import com.mycompany.trabalho_final.inscricao.faces.validator.EmailValidator;
+import com.mycompany.trabalho_final.inscricao.faces.validator.StringValidator;
 import com.mycompany.trabalho_final.model.Pessoa;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -18,6 +22,10 @@ public class InscricaoBean extends PageBean {
     private Pessoa pessoa = new Pessoa();
     private CPFConverter cpfConverter = new CPFConverter();
     private CEPConverter cepConverter = new CEPConverter();
+    private CPFValidator cpfValidator = new CPFValidator();
+    private StringValidator stringValidator = new StringValidator();
+    private AlphaNumericValidator alphaNumericValidator = new AlphaNumericValidator();
+    private EmailValidator emailValidator = new EmailValidator();
     private double valor = 100.00;
     private boolean cursoJava = false;
     private boolean cursoRuby = false;
@@ -42,6 +50,22 @@ public class InscricaoBean extends PageBean {
 
     public CPFConverter getCpfConverter() {
         return cpfConverter;
+    }
+    
+    public CPFValidator getCpfValidator() {
+        return cpfValidator;
+    }
+    
+    public StringValidator getStringValidator() {
+        return stringValidator;
+    }
+    
+    public AlphaNumericValidator getAlphaNumericValidator() {
+        return alphaNumericValidator;
+    }
+    
+    public EmailValidator getEmailValidator() {
+        return emailValidator;
     }
 
     public double getValor() {

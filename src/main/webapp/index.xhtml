@@ -45,35 +45,48 @@
             <ice:panelGroup>
                 <ice:outputLabel for="nome" value="Nome: (*)"/>
                 <ice:inputText id="nome" value="#{inscricaoBean.pessoa.nome}" size="50"
-                               styleClass="ui-inputfield" label="Nome" maxlength="100" required="true"/>
+                               styleClass="ui-inputfield" label="Nome" maxlength="100" required="true">
+                    <f:validator binding="#{inscricaoBean.stringValidator}"/>
+                </ice:inputText>
             </ice:panelGroup>
             <ice:panelGroup>
                 <ice:outputLabel for="cpf" value="CPF: (*)"></ice:outputLabel>
                 <ace:maskedEntry id ="cpf" for="cpf" value="#{inscricaoBean.pessoa.cpf}" mask="999999999-99" 
                                  label="CPF" size="15" required="true" converter="#{inscricaoBean.cpfConverter}">
+                    <f:validator binding="#{inscricaoBean.cpfValidator}"/>
                 </ace:maskedEntry>
                 <ice:outputLabel style="margin-left: 10px;" for="rg" value="RG: (*)"/>
                 <ice:inputText id="rg" value="#{inscricaoBean.pessoa.rg}" size="25"
-                               styleClass="ui-inputfield" label="RG" maxlength="20" required="true"/>
+                               styleClass="ui-inputfield" label="RG" maxlength="20" required="true">
+                    <f:validator binding="#{inscricaoBean.alphaNumericValidator}"/>
+                </ice:inputText>
             </ice:panelGroup>
             <ice:panelGroup>
                 <ice:outputLabel for="enderecoRua" value="Endereço: (*)"/>
                 <ice:inputText id="endereco" value="#{inscricaoBean.pessoa.enderecoRua}" size="25"
-                               styleClass="ui-inputfield" label="Endereço" maxlength="80" required="true"/>
+                               styleClass="ui-inputfield" label="Endereço" maxlength="80" required="true">
+                    <f:validator binding="#{inscricaoBean.stringValidator}"/>
+                </ice:inputText>
                 <ice:outputLabel style="margin-left: 10px;" for="enderecoNumero" value="Número: (*)"/>
                 <ice:inputText id="enderecoNumero" value="#{inscricaoBean.pessoa.enderecoNumero}" size="4"
-                               styleClass="ui-inputfield" label="Endereco Numero" maxlength="5" required="true"/>
+                               styleClass="ui-inputfield" label="Número" maxlength="5" required="true"/>
                 <ice:outputLabel style="margin-left: 10px;" for="enderecoNumero" value="Complemento:"/>
                 <ice:inputText style="margin-left: 10px;" id="enderecoComplemento" value="#{inscricaoBean.pessoa.enderecoComplemento}" size="2"
-                               styleClass="ui-inputfield" label="Endereco Complemento" maxlength="3"/>
+                               styleClass="ui-inputfield" label="Complemento" maxlength="3">
+                    <f:validator binding="#{inscricaoBean.alphaNumericValidator}"/>
+                </ice:inputText>
             </ice:panelGroup>
             <ice:panelGroup>
                 <ice:outputLabel for="cidade" value="Cidade: (*)"/>
                 <ice:inputText id="cidade" value="#{inscricaoBean.pessoa.enderecoCidade}" size="50"
-                               styleClass="ui-inputfield" label="Cidade" maxlength="50" required="true"/>
+                               styleClass="ui-inputfield" label="Cidade" maxlength="50" required="true">
+                    <f:validator binding="#{inscricaoBean.stringValidator}"/>
+                </ice:inputText>
                 <ice:outputLabel style="margin-left: 10px;" for="estado" value="Estado: (*)"/>
                 <ice:inputText id="estado" value="#{inscricaoBean.pessoa.enderecoEstado}" size="4"
-                               styleClass="ui-inputfield" label="Estado" maxlength="2" required="true"/>
+                               styleClass="ui-inputfield" label="Estado" maxlength="2" required="true">
+                    <f:validator binding="#{inscricaoBean.stringValidator}"/>
+                </ice:inputText>
             </ice:panelGroup>
             <ice:panelGroup>
                 <ice:outputLabel for="cep" value="CEP: (*)"/>
@@ -81,7 +94,9 @@
                                  label="CEP" size="10" required="true" converter="#{inscricaoBean.cepConverter}"/>
                 <ice:outputLabel style="margin-left: 10px;" for="bairro" value="Bairro: (*)"/>
                 <ice:inputText id="bairro" value="#{inscricaoBean.pessoa.enderecoBairro}" size="30"
-                               styleClass="ui-inputfield" label="Bairro" maxlength="50"/>
+                               styleClass="ui-inputfield" label="Bairro" maxlength="50">
+                    <f:validator binding="#{inscricaoBean.stringValidator}"/>
+                </ice:inputText>
             </ice:panelGroup>
             <ice:panelGroup>
                 <ice:outputLabel for="fone" value="Fone/Celular: (*)"/>
@@ -91,7 +106,9 @@
             <ice:panelGroup>
                 <ice:outputLabel for="email" value="E-mail: (*)"/>
                 <ice:inputText id="email" value="#{inscricaoBean.pessoa.email}" size="60"
-                               styleClass="ui-inputfield" label="E-mail" maxlength="200" required="true"/>
+                               styleClass="ui-inputfield" label="E-mail" maxlength="200" required="true">
+                    <f:validator binding="#{inscricaoBean.emailValidator}"/>
+                </ice:inputText>
             </ice:panelGroup>
             <div class="titulo-form">Cursos em que deseja se inscrever: </div>
             <ice:panelGroup>
