@@ -95,26 +95,26 @@
             </ice:panelGroup>
             <div class="titulo-form">Cursos em que deseja se inscrever: </div>
             <ice:panelGroup>
-                <ice:selectBooleanCheckbox id="cursoJava" value="#{inscricaoBean.cursoJava}"></ice:selectBooleanCheckbox>
+                <h:selectBooleanCheckbox id="cursoJava" value="#{inscricaoBean.cursoJava}"></h:selectBooleanCheckbox>
                 <ice:outputLabel value="Programação Java para Web"></ice:outputLabel>
             </ice:panelGroup>
             <ice:panelGroup>
-                <ice:selectBooleanCheckbox id="cursoPython" value="#{inscricaoBean.cursoPython}"></ice:selectBooleanCheckbox>
+                <h:selectBooleanCheckbox id="cursoPython" value="#{inscricaoBean.cursoPython}"></h:selectBooleanCheckbox>
                 <ice:outputLabel value="Linguagem Python"></ice:outputLabel>
             </ice:panelGroup>
             <ice:panelGroup>
-                <ice:selectBooleanCheckbox id="cursoRuby" value="#{inscricaoBean.cursoRuby}"></ice:selectBooleanCheckbox>
+                <h:selectBooleanCheckbox id="cursoRuby" value="#{inscricaoBean.cursoRuby}"></h:selectBooleanCheckbox>
                 <ice:outputLabel value="Ruby on Rails"></ice:outputLabel>
             </ice:panelGroup>
             <ice:panelGroup>
-                <ice:selectBooleanCheckbox id="cursoHtml" value="#{inscricaoBean.cursoHtml}"></ice:selectBooleanCheckbox>
+                <h:selectBooleanCheckbox id="cursoHtml" value="#{inscricaoBean.cursoHtml}"></h:selectBooleanCheckbox>
                 <ice:outputLabel value="HTML 5"></ice:outputLabel>
             </ice:panelGroup>
             <ice:panelGroup>
-                <ice:selectBooleanCheckbox id="cursoWebservice" value="#{inscricaoBean.cursoWebservice}"></ice:selectBooleanCheckbox>
+                <h:selectBooleanCheckbox id="cursoWebservice" value="#{inscricaoBean.cursoWebservice}"></h:selectBooleanCheckbox>
                 <ice:outputLabel value="Webservices"></ice:outputLabel>
             </ice:panelGroup>
-            <ice:commandButton value="Confirmar cadastro" action="#{inscricaoBean.cadastroAction()}"></ice:commandButton>
+            <ice:commandButton value="Confirmar cadastro" action="#{inscricaoBean.cadastroAction}"></ice:commandButton>
             <p><span>Os campos marcados com (*) são obrigatórios</span></p>
         </ice:form>
     </ui:define>

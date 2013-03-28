@@ -9,15 +9,15 @@ import java.io.Serializable;
 public class Pessoa implements Serializable {
 
     private String nome;
-    private long cpf;
+    private Long cpf;
     private String rg;
     private String enderecoRua;
-    private int enderecoNumero;
+    private Integer enderecoNumero;
     private String enderecoComplemento;
     private String enderecoBairro;
     private String enderecoCidade;
     private String enderecoEstado;
-    private int cep;
+    private Integer cep;
     private String telefone;
     private String celular;
     private String email;
@@ -37,11 +37,11 @@ public class Pessoa implements Serializable {
         this.nome = nome;
     }
 
-    public long getCpf() {
+    public Long getCpf() {
         return cpf;
     }
 
-    public void setCpf(long cpf) {
+    public void setCpf(Long cpf) {
         this.cpf = cpf;
     }
 
@@ -61,11 +61,11 @@ public class Pessoa implements Serializable {
         this.enderecoRua = enderecoRua;
     }
 
-    public int getEnderecoNumero() {
+    public Integer getEnderecoNumero() {
         return enderecoNumero;
     }
 
-    public void setEnderecoNumero(int enderecoNumero) {
+    public void setEnderecoNumero(Integer enderecoNumero) {
         this.enderecoNumero = enderecoNumero;
     }
 
@@ -101,11 +101,11 @@ public class Pessoa implements Serializable {
         this.enderecoEstado = enderecoEstado;
     }
 
-    public int getCep() {
+    public Integer getCep() {
         return cep;
     }
 
-    public void setCep(int cep) {
+    public void setCep(Integer cep) {
         this.cep = cep;
     }
 

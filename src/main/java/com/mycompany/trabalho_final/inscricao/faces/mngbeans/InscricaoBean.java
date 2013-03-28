@@ -29,6 +29,7 @@ public class InscricaoBean extends PageBean {
     }
 
     public void cadastroAction() {
+        info("Inscrição realizada com sucesso");
     }
 
     public Pessoa getPessoa() {
@@ -69,5 +70,25 @@ public class InscricaoBean extends PageBean {
 
     public boolean isCursoWebservice() {
         return cursoWebservice;
+    }
+
+    public void setCursoJava(boolean cursoJava) {
+        this.cursoJava = cursoJava;
+    }
+
+    public void setCursoRuby(boolean cursoRuby) {
+        this.cursoRuby = cursoRuby;
+    }
+
+    public void setCursoPython(boolean cursoPython) {
+        this.cursoPython = cursoPython;
+    }
+
+    public void setCursoHtml(boolean cursoHtml) {
+        this.cursoHtml = cursoHtml;
+    }
+
+    public void setCursoWebservice(boolean cursoWebservice) {
+        this.cursoWebservice = cursoWebservice;
     }
 }
