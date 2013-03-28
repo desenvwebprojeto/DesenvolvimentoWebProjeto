@@ -50,7 +50,7 @@
             <ice:panelGroup>
                 <ice:outputLabel for="cpf" value="CPF: (*)"></ice:outputLabel>
                 <ace:maskedEntry id ="cpf" for="cpf" value="#{inscricaoBean.pessoa.cpf}" mask="999999999-99" 
-                                 label="CPF" size="15" required="true">
+                                 label="CPF" size="15" required="true" converter="#{inscricaoBean.cpfConverter}">
                 </ace:maskedEntry>
                 <ice:outputLabel style="margin-left: 10px;" for="rg" value="RG: (*)"/>
                 <ice:inputText id="rg" value="#{inscricaoBean.pessoa.rg}" size="25"
@@ -78,7 +78,7 @@
             <ice:panelGroup>
                 <ice:outputLabel for="cep" value="CEP: (*)"/>
                 <ace:maskedEntry id="cep" value="#{inscricaoBean.pessoa.cep}" mask="99999-999"
-                                 label="CEP" size="10" required="true"/>
+                                 label="CEP" size="10" required="true" converter="#{inscricaoBean.cepConverter}"/>
                 <ice:outputLabel style="margin-left: 10px;" for="bairro" value="Bairro: (*)"/>
                 <ice:inputText id="bairro" value="#{inscricaoBean.pessoa.enderecoBairro}" size="30"
                                styleClass="ui-inputfield" label="Bairro" maxlength="50"/>
@@ -118,5 +118,4 @@
             <p><span>Os campos marcados com (*) são obrigatórios</span></p>
         </ice:form>
     </ui:define>
-
 </ui:composition>

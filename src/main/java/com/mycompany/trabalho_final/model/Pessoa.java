@@ -10,7 +10,7 @@ public class Pessoa implements Serializable {
 
     private String nome;
     private long cpf;
-    private long rg;
+    private String rg;
     private String enderecoRua;
     private int enderecoNumero;
     private String enderecoComplemento;
@@ -45,11 +45,11 @@ public class Pessoa implements Serializable {
         this.cpf = cpf;
     }
 
-    public long getRg() {
+    public String getRg() {
         return rg;
     }
 
-    public void setRg(long rg) {
+    public void setRg(String rg) {
         this.rg = rg;
     }
 
