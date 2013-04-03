@@ -1,2 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context antiJARLocking="true" path="/Trabalho_final"/>
+<Context antiJARLocking="true" path="/Trabalho_final">
+    <Resource auth="Container" 
+                driverClassName="org.postgresql.Driver" 
+                logAbandoned="true" 
+                maxActive="100" 
+                maxIdle="20" 
+                maxWait="10000" 
+                name="jdbc/Trabalho_final" 
+                removeAbandoned="true" 
+                type="javax.sql.DataSource" 
+                url="jdbc:postgresql://dev.ct.utfpr.edu.br/aluno09" 
+                username="aluno09"
+                password="desenvwebprojeto123" />
+</Context>
