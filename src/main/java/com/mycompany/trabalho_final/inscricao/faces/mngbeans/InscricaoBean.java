@@ -1,6 +1,7 @@
 package com.mycompany.trabalho_final.inscricao.faces.mngbeans;
 
 import com.mycompany.trabalho_final.controller.faces.support.PageBean;
+import com.mycompany.trabalho_final.controller.persistence.PessoaJpaController;
 import com.mycompany.trabalho_final.inscricao.faces.converter.CEPConverter;
 import com.mycompany.trabalho_final.inscricao.faces.converter.CPFConverter;
 import com.mycompany.trabalho_final.inscricao.faces.validator.AlphaNumericValidator;
@@ -60,6 +61,7 @@ public class InscricaoBean extends PageBean {
         info("Valor: " + this.getValor().toString());
         info("-----------");
         info("Inscrição realizada com sucesso");
+        new PessoaJpaController().persist(pessoa);
     }
     
     private void calculaValor() {
