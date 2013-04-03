@@ -51,7 +51,7 @@ public class Pessoa implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "endereconumero")
-    private int endereconumero;
+    private Integer endereconumero;
     @Size(max = 3)
     @Column(name = "enderecocomplemento")
     private String enderecocomplemento;
@@ -68,7 +68,7 @@ public class Pessoa implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "cep")
-    private int cep;
+    private Integer cep;
     @Size(max = 50)
     @Column(name = "enderecobairro")
     private String enderecobairro;
@@ -138,11 +138,11 @@ public class Pessoa implements Serializable {
         this.enderecorua = enderecorua;
     }
 
-    public int getEndereconumero() {
+    public Integer getEndereconumero() {
         return endereconumero;
     }
 
-    public void setEndereconumero(int endereconumero) {
+    public void setEndereconumero(Integer endereconumero) {
         this.endereconumero = endereconumero;
     }
 
@@ -170,11 +170,11 @@ public class Pessoa implements Serializable {
         this.enderecoestado = enderecoestado;
     }
 
-    public int getCep() {
+    public Integer getCep() {
         return cep;
     }
 
-    public void setCep(int cep) {
+    public void setCep(Integer cep) {
         this.cep = cep;
     }
 

@@ -1,11 +1,8 @@
-package com.mycompany.trabalho_final.model;
+/**
+ package com.mycompany.trabalho_final.model;
 
 import java.io.Serializable;
 
-/**
- *
- * @author Guilherme dos Santos Fujiyoshi
- */
 public class Pessoa implements Serializable {
 
     private String nome;
@@ -133,3 +130,4 @@ public class Pessoa implements Serializable {
         this.email = email;
     }
 }
+*/

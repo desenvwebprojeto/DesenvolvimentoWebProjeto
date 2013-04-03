@@ -7,7 +7,7 @@ import com.mycompany.trabalho_final.inscricao.faces.validator.AlphaNumericValida
 import com.mycompany.trabalho_final.inscricao.faces.validator.CPFValidator;
 import com.mycompany.trabalho_final.inscricao.faces.validator.EmailValidator;
 import com.mycompany.trabalho_final.inscricao.faces.validator.StringValidator;
-import com.mycompany.trabalho_final.model.Pessoa;
+import com.mycompany.trabalho_final.model.persistence.entity.Pessoa;
 import java.math.BigDecimal;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -43,13 +43,13 @@ public class InscricaoBean extends PageBean {
         info("Nome: " + pessoa.getNome());
         info("CPF: " + pessoa.getCpf());
         info("RG: " + pessoa.getRg());
-        info("Endereço: " + pessoa.getEnderecoRua());
-        info("Número: " + pessoa.getEnderecoNumero());
-        info("Complemento: " + pessoa.getEnderecoComplemento());
-        info("Cidade: " + pessoa.getEnderecoCidade());
-        info("Estado: " + pessoa.getEnderecoEstado());
+        info("Endereço: " + pessoa.getEnderecorua());
+        info("Número: " + pessoa.getEndereconumero());
+        info("Complemento: " + pessoa.getEnderecocomplemento());
+        info("Cidade: " + pessoa.getEnderecocidade());
+        info("Estado: " + pessoa.getEnderecoestado());
         info("CEP: " + pessoa.getCep());
-        info("Bairro: " + pessoa.getEnderecoBairro());
+        info("Bairro: " + pessoa.getEnderecobairro());
         info("Fone: " + pessoa.getTelefone());
         info("E-Mail: " + pessoa.getEmail());
         info("Curso Java: " + this.isCursoJava());

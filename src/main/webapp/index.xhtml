@@ -63,27 +63,27 @@
             </ice:panelGroup>
             <ice:panelGroup>
                 <ice:outputLabel for="enderecoRua" value="Endereço: (*)"/>
-                <ice:inputText id="endereco" value="#{inscricaoBean.pessoa.enderecoRua}" size="25"
+                <ice:inputText id="endereco" value="#{inscricaoBean.pessoa.enderecorua}" size="25"
                                styleClass="ui-inputfield" label="Endereço" maxlength="80" required="true">
                     <f:validator binding="#{inscricaoBean.stringValidator}"/>
                 </ice:inputText>
                 <ice:outputLabel style="margin-left: 10px;" for="enderecoNumero" value="Número: (*)"/>
-                <ice:inputText id="enderecoNumero" value="#{inscricaoBean.pessoa.enderecoNumero}" size="4"
+                <ice:inputText id="enderecoNumero" value="#{inscricaoBean.pessoa.endereconumero}" size="4"
                                styleClass="ui-inputfield" label="Número" maxlength="5" required="true"/>
                 <ice:outputLabel style="margin-left: 10px;" for="enderecoNumero" value="Complemento:"/>
-                <ice:inputText style="margin-left: 10px;" id="enderecoComplemento" value="#{inscricaoBean.pessoa.enderecoComplemento}" size="2"
+                <ice:inputText style="margin-left: 10px;" id="enderecoComplemento" value="#{inscricaoBean.pessoa.enderecocomplemento}" size="2"
                                styleClass="ui-inputfield" label="Complemento" maxlength="3">
                     <f:validator binding="#{inscricaoBean.alphaNumericValidator}"/>
                 </ice:inputText>
             </ice:panelGroup>
             <ice:panelGroup>
                 <ice:outputLabel for="cidade" value="Cidade: (*)"/>
-                <ice:inputText id="cidade" value="#{inscricaoBean.pessoa.enderecoCidade}" size="50"
+                <ice:inputText id="cidade" value="#{inscricaoBean.pessoa.enderecocidade}" size="50"
                                styleClass="ui-inputfield" label="Cidade" maxlength="50" required="true">
                     <f:validator binding="#{inscricaoBean.stringValidator}"/>
                 </ice:inputText>
                 <ice:outputLabel style="margin-left: 10px;" for="estado" value="Estado: (*)"/>
-                <ice:inputText id="estado" value="#{inscricaoBean.pessoa.enderecoEstado}" size="4"
+                <ice:inputText id="estado" value="#{inscricaoBean.pessoa.enderecoestado}" size="4"
                                styleClass="ui-inputfield" label="Estado" maxlength="2" required="true">
                     <f:validator binding="#{inscricaoBean.stringValidator}"/>
                 </ice:inputText>
@@ -93,7 +93,7 @@
                 <ace:maskedEntry id="cep" value="#{inscricaoBean.pessoa.cep}" mask="99999-999"
                                  label="CEP" size="10" required="true" converter="#{inscricaoBean.cepConverter}"/>
                 <ice:outputLabel style="margin-left: 10px;" for="bairro" value="Bairro: (*)"/>
-                <ice:inputText id="bairro" value="#{inscricaoBean.pessoa.enderecoBairro}" size="30"
+                <ice:inputText id="bairro" value="#{inscricaoBean.pessoa.enderecobairro}" size="30"
                                styleClass="ui-inputfield" label="Bairro" maxlength="50">
                     <f:validator binding="#{inscricaoBean.stringValidator}"/>
                 </ice:inputText>
