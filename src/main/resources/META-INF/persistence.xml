@@ -12,10 +12,6 @@
       <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.ehcache.EhCacheRegionFactory"/>
       <property name="hibernate.show_sql" value="true"/>
       <property name="hibernate.format_sql" value="true"/>
-      <property name="hibernate.connection.username" value="aluno09"/>
-      <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
-      <property name="hibernate.connection.password" value="desenvwebprojeto123"/>
-      <property name="hibernate.connection.url" value="jdbc:postgresql://dev.ct.utfpr.edu.br/aluno09"/>
     </properties>
   </persistence-unit>
 </persistence>
