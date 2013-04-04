@@ -32,7 +32,7 @@ public class Pessoa implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "cpf")
-    private Float cpf;
+    private Long cpf;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 100)
@@ -68,7 +68,7 @@ public class Pessoa implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "cep")
-    private Integer cep;
+    private Long cep;
     @Size(max = 50)
     @Column(name = "enderecobairro")
     private String enderecobairro;
@@ -89,11 +89,11 @@ public class Pessoa implements Serializable {
     public Pessoa() {
     }
 
-    public Pessoa(Float cpf) {
+    public Pessoa(Long cpf) {
         this.cpf = cpf;
     }
 
-    public Pessoa(Float cpf, String nome, String rg, String enderecorua, int endereconumero, String enderecocidade, String enderecoestado, int cep, String telefone, String email) {
+    public Pessoa(Long cpf, String nome, String rg, String enderecorua, int endereconumero, String enderecocidade, String enderecoestado, Long cep, String telefone, String email) {
         this.cpf = cpf;
         this.nome = nome;
         this.rg = rg;
@@ -106,11 +106,11 @@ public class Pessoa implements Serializable {
         this.email = email;
     }
 
-    public Float getCpf() {
+    public Long getCpf() {
         return cpf;
     }
 
-    public void setCpf(Float cpf) {
+    public void setCpf(Long cpf) {
         this.cpf = cpf;
     }
 
@@ -170,11 +170,11 @@ public class Pessoa implements Serializable {
         this.enderecoestado = enderecoestado;
     }
 
-    public Integer getCep() {
+    public Long getCep() {
         return cep;
     }
 
-    public void setCep(Integer cep) {
+    public void setCep(Long cep) {
         this.cep = cep;
     }
 
