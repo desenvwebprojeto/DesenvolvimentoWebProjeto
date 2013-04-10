@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ice="http://www.icesoft.com/icefaces/component"
+                xmlns:ace="http://www.icefaces.org/icefaces/components"
+                template="./WEB-INF/templates/layout.xhtml">
+
+    <ui:define name="styles">
+        <style type="text/css">
+            body {
+                background-color: #000000;
+            }
+            .titulo-form {
+                font-size: 14pt;
+                font-weight: bold;
+                margin: 10px 0;
+                text-align: left;
+            }
+            .iceOutLbl {
+                display: inline-block;
+                margin-left: 4px;
+                margin-right: 4px;
+            }
+
+            .icePnlGrp {
+                text-align: left;
+                margin-top: 4px;
+                margin-bottom: 10px;
+            }
+        </style>
+    </ui:define>
+
+    <ui:define name="metadata">
+    </ui:define>
+
+    <ui:define name="javascript">
+    </ui:define>
+
+    <ui:define name="content">
+        <ice:form>
+            <div class="titulo-form" style="text-align: left;">Login</div>
+            <ice:panelGroup>
+                <ice:outputLabel for="cpf" value="CPF: "></ice:outputLabel>
+                <ace:maskedEntry id ="cpf" for="cpf" value="#{inscricaoBean.pessoa.cpf}" mask="999999999-99" 
+                                 label="CPF" size="15" required="true" converter="#{inscricaoBean.cpfConverter}">
+                    <f:validator binding="#{inscricaoBean.cpfValidator}"/>
+                </ace:maskedEntry>
+            </ice:panelGroup>
+            <ice:panelGroup>
+                <ice:outputLabel for="email" value="E-mail: "/>
+                <ice:inputText id="email" value="#{inscricaoBean.pessoa.email}" size="60"
+                               styleClass="ui-inputfield" label="E-mail" maxlength="200" required="true">
+                    <f:validator binding="#{inscricaoBean.emailValidator}"/>
+                </ice:inputText>
+            </ice:panelGroup>
+            <ice:commandButton value="Confirmar cadastro" action="#{inscricaoBean.cadastroAction}"></ice:commandButton>
+            <p><span>Os campos marcados com (*) são obrigatórios</span></p>
+        </ice:form>
+    </ui:define>
+</ui:composition>
