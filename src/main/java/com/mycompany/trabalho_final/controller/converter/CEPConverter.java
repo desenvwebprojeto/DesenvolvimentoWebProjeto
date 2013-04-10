@@ -1,4 +1,4 @@
-package com.mycompany.trabalho_final.inscricao.faces.converter;
+package com.mycompany.trabalho_final.controller.converter;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;

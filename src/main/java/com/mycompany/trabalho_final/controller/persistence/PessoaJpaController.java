@@ -11,7 +11,7 @@ public class PessoaJpaController extends JpaController {
 
     public PessoaJpaController() {
     }
-    
+
     public void persist(Pessoa p) {
         EntityManager em = null;
         try {
@@ -19,6 +19,8 @@ public class PessoaJpaController extends JpaController {
             em.getTransaction().begin();
             em.persist(p);
             em.getTransaction().commit();
+        } catch (Exception ex) {
+            // todo
         } finally {
             if (em != null) {
                 em.close();
@@ -27,18 +29,18 @@ public class PessoaJpaController extends JpaController {
     }
 
     /*public List<Pessoa> findAll() {
-        EntityManager em = null;
-        try {
-            em = getEntityManager();
-            CriteriaBuilder cb = em.getCriteriaBuilder();
-            CriteriaQuery<Pessoa> cq = cb.createQuery(Pessoa.class);
-            cq.from(Pessoa.class);
-            TypedQuery<Pessoa> q = em.createQuery(cq);
-            return q.getResultList();
-        } finally {
-            if (em != null) {
-                em.close();
-            }
-        }
-    }*/
+     EntityManager em = null;
+     try {
+     em = getEntityManager();
+     CriteriaBuilder cb = em.getCriteriaBuilder();
+     CriteriaQuery<Pessoa> cq = cb.createQuery(Pessoa.class);
+     cq.from(Pessoa.class);
+     TypedQuery<Pessoa> q = em.createQuery(cq);
+     return q.getResultList();
+     } finally {
+     if (em != null) {
+     em.close();
+     }
+     }
+     }*/
 }

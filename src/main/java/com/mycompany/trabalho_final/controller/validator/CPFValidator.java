@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.trabalho_final.inscricao.faces.validator;
+package com.mycompany.trabalho_final.controller.validator;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;

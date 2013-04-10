@@ -1,13 +1,13 @@
-package com.mycompany.trabalho_final.inscricao.faces.mngbeans;
+package com.mycompany.trabalho_final.model.mngbeans;
 
 import com.mycompany.trabalho_final.controller.faces.support.PageBean;
 import com.mycompany.trabalho_final.controller.persistence.PessoaJpaController;
-import com.mycompany.trabalho_final.inscricao.faces.converter.CEPConverter;
-import com.mycompany.trabalho_final.inscricao.faces.converter.CPFConverter;
-import com.mycompany.trabalho_final.inscricao.faces.validator.AlphaNumericValidator;
-import com.mycompany.trabalho_final.inscricao.faces.validator.CPFValidator;
-import com.mycompany.trabalho_final.inscricao.faces.validator.EmailValidator;
-import com.mycompany.trabalho_final.inscricao.faces.validator.StringValidator;
+import com.mycompany.trabalho_final.controller.converter.CEPConverter;
+import com.mycompany.trabalho_final.controller.converter.CPFConverter;
+import com.mycompany.trabalho_final.controller.validator.AlphaNumericValidator;
+import com.mycompany.trabalho_final.controller.validator.CPFValidator;
+import com.mycompany.trabalho_final.controller.validator.EmailValidator;
+import com.mycompany.trabalho_final.controller.validator.StringValidator;
 import com.mycompany.trabalho_final.model.persistence.entity.Pessoa;
 import java.math.BigDecimal;
 import javax.faces.bean.ManagedBean;
@@ -60,7 +60,7 @@ public class InscricaoBean extends PageBean {
         info("Curso Webservies: " + this.isCursoWebservice());
         info("Valor: " + this.getValor().toString());
         info("-----------");
-        info("Inscrição realizada com sucesso");
+        //info("Inscrição realizada com sucesso");
         new PessoaJpaController().persist(pessoa);
     }
     

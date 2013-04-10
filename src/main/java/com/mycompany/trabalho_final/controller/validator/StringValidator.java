@@ -1,4 +1,4 @@
-package com.mycompany.trabalho_final.inscricao.faces.validator;
+package com.mycompany.trabalho_final.controller.validator;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
