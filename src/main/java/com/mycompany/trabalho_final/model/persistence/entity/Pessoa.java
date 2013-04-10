@@ -83,8 +83,6 @@ public class Pessoa implements Serializable {
     @Size(min = 1, max = 200)
     @Column(name = "email")
     private String email;
-    @Column(name = "isadmin")
-    private Boolean isadmin;
 
     public Pessoa() {
     }
@@ -200,14 +198,6 @@ public class Pessoa implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public Boolean getIsadmin() {
-        return isadmin;
-    }
-
-    public void setIsadmin(Boolean isadmin) {
-        this.isadmin = isadmin;
     }
 
     @Override

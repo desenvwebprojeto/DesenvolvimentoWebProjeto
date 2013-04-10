@@ -60,10 +60,16 @@ public class InscricaoBean extends PageBean {
         info("Curso Webservies: " + this.isCursoWebservice());
         info("Valor: " + this.getValor().toString());
         info("-----------");
-        //info("Inscrição realizada com sucesso");
-        new PessoaJpaController().persist(pessoa);
+        
+        PessoaJpaController pjpa = new PessoaJpaController();
+        if (pjpa.findByCpf(pessoa.getCpf()) == null) {
+            pjpa.persist(pessoa);
+            info("Inscrição realizada com sucesso");
+        } else {
+            info("CPF já cadastrado.");
+        }
     }
-    
+
     private void calculaValor() {
         this.checaCurso(cursoJava);
         this.checaCurso(cursoPython);
@@ -73,15 +79,15 @@ public class InscricaoBean extends PageBean {
     }
 
     private void checaCurso(boolean op) {
-        if(op) {
+        if (op) {
             this.valor = valor.add(new BigDecimal("50.00"));
         }
     }
-    
+
     public void setPessoa(Pessoa pessoa) {
         this.pessoa = pessoa;
     }
-    
+
     public Pessoa getPessoa() {
         return pessoa;
     }
@@ -93,19 +99,19 @@ public class InscricaoBean extends PageBean {
     public CPFConverter getCpfConverter() {
         return cpfConverter;
     }
-    
+
     public CPFValidator getCpfValidator() {
         return cpfValidator;
     }
-    
+
     public StringValidator getStringValidator() {
         return stringValidator;
     }
-    
+
     public AlphaNumericValidator getAlphaNumericValidator() {
         return alphaNumericValidator;
     }
-    
+
     public EmailValidator getEmailValidator() {
         return emailValidator;
     }
