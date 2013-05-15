@@ -4,10 +4,11 @@
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <non-jta-data-source>java:/comp/env/jdbc/Trabalho_final</non-jta-data-source>
     <class>com.mycompany.trabalho_final.model.persistence.entity.Pessoa</class>
+    <class>com.mycompany.trabalho_final.model.persistence.entity.Curso</class>
+    <class>com.mycompany.trabalho_final.model.persistence.entity.Cursopessoa</class>
+    <class>com.mycompany.trabalho_final.model.persistence.entity.Administracao</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
-      <property name="hibernate.show_sql" value="true"/>
-      <property name="hibernate.format_sql" value="true"/>
     </properties>
   </persistence-unit>
 </persistence>

@@ -25,6 +25,14 @@ import javax.validation.constraints.Size;
 @NamedQueries({
     @NamedQuery(name = "Pessoa.findAll", query = "SELECT p FROM Pessoa p")})
 public class Pessoa implements Serializable {
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "endereconumero")
+    private int endereconumero;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "cep")
+    private int cep;
 
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
@@ -48,10 +56,6 @@ public class Pessoa implements Serializable {
     @Size(min = 1, max = 80)
     @Column(name = "enderecorua")
     private String enderecorua;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "endereconumero")
-    private Integer endereconumero;
     @Size(max = 3)
     @Column(name = "enderecocomplemento")
     private String enderecocomplemento;
@@ -65,10 +69,6 @@ public class Pessoa implements Serializable {
     @Size(min = 1, max = 2)
     @Column(name = "enderecoestado")
     private String enderecoestado;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "cep")
-    private Integer cep;
     @Size(max = 50)
     @Column(name = "enderecobairro")
     private String enderecobairro;
@@ -136,14 +136,6 @@ public class Pessoa implements Serializable {
         this.enderecorua = enderecorua;
     }
 
-    public Integer getEndereconumero() {
-        return endereconumero;
-    }
-
-    public void setEndereconumero(Integer endereconumero) {
-        this.endereconumero = endereconumero;
-    }
-
     public String getEnderecocomplemento() {
         return enderecocomplemento;
     }
@@ -166,14 +158,6 @@ public class Pessoa implements Serializable {
 
     public void setEnderecoestado(String enderecoestado) {
         this.enderecoestado = enderecoestado;
-    }
-
-    public Integer getCep() {
-        return cep;
-    }
-
-    public void setCep(Integer cep) {
-        this.cep = cep;
     }
 
     public String getEnderecobairro() {
@@ -199,7 +183,7 @@ public class Pessoa implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -223,5 +207,21 @@ public class Pessoa implements Serializable {
     @Override
     public String toString() {
         return "com.mycompany.trabalho_final.model.persistence.entity.Pessoa[ cpf=" + cpf + " ]";
+    }
+
+    public int getEndereconumero() {
+        return endereconumero;
+    }
+
+    public void setEndereconumero(int endereconumero) {
+        this.endereconumero = endereconumero;
+    }
+
+    public int getCep() {
+        return cep;
+    }
+
+    public void setCep(int cep) {
+        this.cep = cep;
     }
 }

@@ -10,9 +10,6 @@
 
     <ui:define name="styles">
         <style type="text/css">
-            body {
-                background-color: #000000;
-            }
             .titulo-form {
                 font-size: 14pt;
                 font-weight: bold;
@@ -40,8 +37,22 @@
     </ui:define>
 
     <ui:define name="content">
-        <p align="center" style="font-size: 20px; font-weight: bold;"><a href="cadastro.xhtml">Realizar Nova Inscrição</a></p>
-        <p align="center" style="font-size: 20px; font-weight: bold;"><a href="login_usuario.xhtml">Editar cadastro já existente</a></p>
-        <p align="center" style="font-size: 20px; font-weight: bold;"><a href="login_admin.xhtml">Administração</a></p>
+        <ice:form>
+            <div class="titulo-form" style="text-align: center;">Login</div>
+            <ice:panelGroup>
+                <ice:outputLabel for="cpf" value="CPF: "></ice:outputLabel>
+                <ace:maskedEntry id ="cpf" for="cpf" value="#{userSessionBean.cpf}" mask="999999999-99" 
+                                 label="CPF" size="15" required="true" converter="#{userSessionBean.cpfConverter}">
+                </ace:maskedEntry>
+            </ice:panelGroup>
+            <ice:panelGroup>
+                <ice:outputLabel for="email" value="E-mail: "/>
+                <ice:inputText id="email" value="#{userSessionBean.email}" size="60"
+                               styleClass="ui-inputfield" label="E-mail" maxlength="200" required="true">
+                    <f:validator binding="#{userSessionBean.emailValidator}"/>
+                </ice:inputText>
+            </ice:panelGroup>
+            <ice:commandButton value="Realizar Login" action="#{userSessionBean.realizaLogin()}"></ice:commandButton>
+        </ice:form>
     </ui:define>
 </ui:composition>

@@ -1,7 +1,7 @@
 package com.mycompany.trabalho_final.controller.persistence;
 
-import com.mycompany.trabalho_final.model.persistence.entity.Pessoa;
-import java.util.List;
+import com.mycompany.trabalho_final.model.persistence.entity.Cursopessoa;
+import com.mycompany.trabalho_final.model.persistence.entity.CursopessoaPK;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
@@ -9,17 +9,21 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-public class PessoaJpaController extends JpaController {
+/**
+ *
+ * @author Guilherme dos Santos Fujiyoshi
+ */
+public class CursoPessoaJpaController extends JpaController {
 
-    public PessoaJpaController() {
+    public CursoPessoaJpaController() {
     }
 
-    public void persist(Pessoa p) {
+    public void persist(Cursopessoa cp) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(p);
+            em.persist(cp);
             em.getTransaction().commit();
         } catch (Exception ex) {
             // todo
@@ -29,13 +33,13 @@ public class PessoaJpaController extends JpaController {
             }
         }
     }
-
-    public void update(Pessoa p) {
+    
+    public void update(Cursopessoa cp) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.merge(p);
+            em.merge(cp);
             em.getTransaction().commit();
         } catch (Exception ex) {
             // todo
@@ -45,39 +49,21 @@ public class PessoaJpaController extends JpaController {
             }
         }
     }
-
-    public Pessoa findByCpf(Long cpf) {
-        Pessoa p = new Pessoa();
+   
+    public boolean findByCpf(int id, Long cpf) {
         EntityManager em = null;
 
         try {
+            CursopessoaPK cppk = new CursopessoaPK(id, cpf);
             em = getEntityManager();
             CriteriaBuilder cb = em.getCriteriaBuilder();
-            CriteriaQuery<Pessoa> cq = cb.createQuery(Pessoa.class);
-            Root<Pessoa> rt = cq.from(Pessoa.class);
-            cq.where(cb.equal(rt.get("cpf"), cpf));
-            TypedQuery<Pessoa> q = em.createQuery(cq);
-            return q.getSingleResult();
+            CriteriaQuery<Cursopessoa> cq = cb.createQuery(Cursopessoa.class);
+            Root<Cursopessoa> rt = cq.from(Cursopessoa.class);
+            cq.where(cb.equal(rt.get("cursopessoaPK"), cppk));
+            TypedQuery<Cursopessoa> q = em.createQuery(cq);
+            return q.getSingleResult().getCursando();
         } catch (NoResultException ex) {
-            return null;
-        } finally {
-            if (em != null) {
-                em.close();
-            }
-        }
-    }
-
-    public List<Pessoa> findAll() {
-        EntityManager em = null;
-        try {
-            em = getEntityManager();
-            CriteriaBuilder cb = em.getCriteriaBuilder();
-            CriteriaQuery<Pessoa> cq = cb.createQuery(Pessoa.class);
-            Root<Pessoa> rt = cq.from(Pessoa.class);
-            //cq.from(Pessoa.class);
-            cq.orderBy(cb.asc(rt.get("nome")));
-            TypedQuery<Pessoa> q = em.createQuery(cq);
-            return q.getResultList();
+            return false;
         } finally {
             if (em != null) {
                 em.close();

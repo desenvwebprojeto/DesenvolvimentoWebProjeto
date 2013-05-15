@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ice="http://www.icesoft.com/icefaces/component"
+                xmlns:ace="http://www.icefaces.org/icefaces/components"
+                template="./WEB-INF/templates/layout.xhtml">
+
+    <ui:define name="styles">
+        <style type="text/css">
+            .titulo-form {
+                font-size: 14pt;
+                font-weight: bold;
+                margin: 10px 0;
+                text-align: left;
+            }
+
+        </style>
+    </ui:define>
+
+    <ui:define name="metadata">
+        <f:metadata>
+            <f:event type="preRenderView" listener="#{adminSessionBean.preRenderList}"/>
+        </f:metadata>
+    </ui:define>
+
+    <ui:define name="javascript">
+    </ui:define>
+
+    <ui:define name="content">
+        <ice:form>
+            <div class="titulo-form" style="text-align: center;">Lista de pessoas inscritas</div>
+            <style type="text/css">
+                /* Important required because row */
+                .ui-datatable-even {
+                    font-size:12px !important;
+                    padding: 3px;
+                    margin: 3px;
+                }
+
+                .ui-header-column {
+                    display: inline;
+                    font-size:12px !important;
+                    padding: 3px;
+                    margin: 3px;
+                }
+                
+                .ui-paginator {
+                    height: 30px;
+                }
+
+                .ui-datatable-odd {
+                    font-size:12px !important;
+                    background-color:lightgray !important;
+                    padding: 3px;
+                    margin: 3px;
+                }
+            </style>
+            <ace:dataTable id="inscritosTable"
+                           value="#{adminSessionBean.inscritos}"
+                           var="user"
+                           paginator="true"
+                           selectionMode="single"
+                           paginatorPosition="bottom"
+                           rows="10" >
+                <ace:column id="cpf" headerText="CPF">
+                    <h:outputText id="cpfCell" value="#{user.cpf}">
+                        <f:converter binding="#{adminSessionBean.cpfConverter}"/>
+                    </h:outputText>
+                </ace:column>
+                <ace:column id="nome" headerText="Nome">
+                    <h:outputText id="nomeCell" value="#{user.nome}"/>
+                </ace:column>
+                <ace:column id="editar" headerText="">
+                    <h:outputLink value="edicao_dados_admin.xhtml?cpf=#{user.cpf}" title="Editar">
+                        <h:outputText value="Editar"/>
+                    </h:outputLink>
+                </ace:column>
+            </ace:dataTable>
+        </ice:form>
+    </ui:define>
+</ui:composition>
